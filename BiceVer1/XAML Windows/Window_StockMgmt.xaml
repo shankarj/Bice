@@ -1,0 +1,75 @@
+﻿<Window x:Class="Window_StockMgmt"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dg="clr-namespace:Microsoft.Windows.Controls;assembly=WpfToolkit"
+    Title="Monthly Reports" Height="550" Width="800"  WindowState="Normal" WindowStartupLocation="CenterScreen" ShowInTaskbar="False" ResizeMode="NoResize" Topmost="True" Name="Window1" SizeToContent="Manual">
+    <Grid>
+        <Button Grid.RowSpan="3" Focusable="False" IsHitTestVisible="False" ></Button>
+
+        <Grid Name="grid_main" IsEnabled="True">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="45" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Label FontSize="40" FontStyle="Italic" FontWeight="Black" Foreground="PaleGoldenrod" Margin="16,10,365,0" Name="Label1" Height="58" VerticalAlignment="Top">
+                    <Label.BitmapEffect>
+                        <OuterGlowBitmapEffect GlowColor="DarkBlue" />
+                    </Label.BitmapEffect> Stock Management
+                </Label>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Border BorderBrush="white" BorderThickness="3" CornerRadius="5,5,5,5" Margin="274,40,294,17">
+                    <Grid>
+                        <Label FontWeight="black" Foreground="White" Name="lbl_date" Margin="19,129,13,147">ORDER DATE :</Label>
+                        <Label FontWeight="Black" Foreground="White" Height="28" Margin="19,0,13,106" Name="lbl_quant" VerticalAlignment="Bottom">ORDER QUANTITY :</Label>
+                        <Label FontWeight="Black" Foreground="White" Margin="19,0,13,70" Name="lbl_supp" Height="18" VerticalAlignment="Bottom">SUPPLIER NAME :</Label>
+                        <Label FontWeight="Black" Foreground="White" Height="28" Margin="19,0,13,18" Name="lbl_order" VerticalAlignment="Bottom">ORDER STATUS :</Label>
+                        <Label FontWeight="Black" Foreground="White" Height="28" Margin="19,86,13,0" Name="lbl_id" VerticalAlignment="Top">ORDER ID :</Label>
+                        <Label FontWeight="Black" Foreground="White" Height="28" Margin="19,14,13,0" Name="Label4" VerticalAlignment="Top">CHOOSE PRODUCT :</Label>
+                        <ComboBox Height="23" Margin="19,39,68,0" Name="combo_prodid" VerticalAlignment="Top" />
+                        <Button Height="23" Margin="0,39,12,0" Name="btn_show" VerticalAlignment="Top" HorizontalAlignment="Right" Width="50">SHOW</Button>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="White" BorderThickness="3" CornerRadius="5,5,5,5" HorizontalAlignment="Left" Margin="10,10,0,20" Width="245">
+                    <dg:DataGrid Name="grid_list" AlternatingRowBackground="CadetBlue" />
+                </Border>
+                <Label FontWeight="Black" Foreground="White" Height="28" Margin="272,10,259,0" Name="Label2" VerticalAlignment="Top">RECENT ORDER DETAILS</Label>
+                <Label FontWeight="Black" Foreground="White" Height="28" HorizontalAlignment="Right" Margin="0,10,101,0" Name="Label5" VerticalAlignment="Top" Width="173">ADD NEW RAW PRODUCT</Label>
+                <Border BorderBrush="White" BorderThickness="3" CornerRadius="5,5,5,5" Margin="0,39,17,18" HorizontalAlignment="Right" Width="260">
+                    <Grid>
+                        <Label FontWeight="Black" Foreground="White" Margin="13,53,0,0" Name="Label6" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110">PRODUCT NAME :</Label>
+                        <Label FontWeight="Black" Foreground="White" Height="28" Margin="13,91,117,0" Name="Label7" VerticalAlignment="Top">QUANTITY IN HAND:</Label>
+                        <Label FontWeight="Black" Foreground="White" Margin="13,127,0,0" Name="Label8" HorizontalAlignment="Left" Width="100" Height="18" VerticalAlignment="Top">MEASURED IN :</Label>
+                        <Label FontWeight="Black" Foreground="White" Height="28" Margin="13,0,0,115" Name="Label9" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100">COST PER UNIT :</Label>
+                        <Label FontWeight="Black" Foreground="White" Height="28" Margin="13,17,0,0" Name="Label10" VerticalAlignment="Top" HorizontalAlignment="Left" Width="90">PRODUCT ID :</Label>
+                        <Button Margin="13,0,0,43" Name="Button2" Height="23" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100">ADD</Button>
+                        <TextBox Height="23" Margin="0,15,20,0" Name="Text_id" VerticalAlignment="Top" HorizontalAlignment="Right" Width="92" />
+                        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,49,20,0" Name="Text_name" VerticalAlignment="Top" Width="92" />
+                        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,87,20,0" Name="Text_quant" VerticalAlignment="Top" Width="92" />
+                        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,0,20,121" Name="Text_cost" VerticalAlignment="Bottom" Width="92" />
+                        <ComboBox Margin="0,122,20,0" Name="Combo_measured" HorizontalAlignment="Right" Width="92" Height="23" VerticalAlignment="Top">
+                            <ComboBoxItem>packs</ComboBoxItem>
+                            <ComboBoxItem>kgms</ComboBoxItem>
+                            <ComboBoxItem>gms</ComboBoxItem>
+                            <ComboBoxItem>milli gms</ComboBoxItem>
+                            <ComboBoxItem>litres</ComboBoxItem>
+                            <ComboBoxItem>milli ltrs</ComboBoxItem>
+                            <ComboBoxItem>bottles</ComboBoxItem>
+                        </ComboBox>
+                        <Button Height="23" Margin="0,0,20,43" Name="Button_save" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="101" IsEnabled="False">SAVE</Button>
+                        <Button Height="23" HorizontalAlignment="Left" Margin="13,0,0,12" Name="Button4" VerticalAlignment="Bottom" Width="100" IsEnabled="False">DELETE</Button>
+                        <Button Height="23" HorizontalAlignment="Right" Margin="0,0,20,12" Name="Button1" VerticalAlignment="Bottom" Width="101">CLEAR</Button>
+                        <Label FontWeight="Black" Foreground="White" Height="28" Margin="13,0,90,79" Name="Label11" VerticalAlignment="Bottom">THRESHOLD QUANTITY :</Label>
+                        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,0,20,85" Name="Text_thresh" VerticalAlignment="Bottom" Width="71" />
+                    </Grid>
+                </Border>
+            </Grid>
+            <Button HorizontalAlignment="Right" Margin="0,12,17,10" Name="Button3" Width="101" Grid.Row="2" IsCancel="True">CLOSE</Button>
+        </Grid>
+    </Grid>
+</Window>

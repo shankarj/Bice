@@ -1,0 +1,351 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E2238A9-3CCF-48FF-A1C8-AD7A9769235F}</ProjectGuid>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BiceVer1</RootNamespace>
+    <AssemblyName>BiceVer1</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <ApplicationIcon>mainico.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <IncrementalBuild>true</IncrementalBuild>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>BiceVer1.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <IncrementalBuild>false</IncrementalBuild>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>BiceVer1.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AmCharts.Windows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6a0af00bd7de39d1, processorArchitecture=MSIL" />
+    <Reference Include="ReuxablesLegacy, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\WPFToolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="Application.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Application.xaml.vb">
+      <DependentUpon>Application.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows" />
+    <Import Include="System.Windows.Controls" />
+    <Import Include="System.Windows.Data" />
+    <Import Include="System.Windows.Documents" />
+    <Import Include="System.Windows.Input" />
+    <Import Include="System.Windows.Shapes" />
+    <Import Include="System.Windows.Media" />
+    <Import Include="System.Windows.Media.Imaging" />
+    <Import Include="System.Windows.Navigation" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Database Modules\CustomerModule.vb" />
+    <Compile Include="Database Modules\DatabaseConnector.vb" />
+    <Compile Include="Database Modules\DatabaseConnector2.vb" />
+    <Compile Include="Database Modules\EmployeeModule.vb" />
+    <Compile Include="Database Modules\InventoryModule.vb" />
+    <Compile Include="Database Modules\PublicDeclarations.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWpfExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.WPF.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="XAML Windows\Window_Attendance.xaml.vb">
+      <DependentUpon>Window_Attendance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_CalculatePay.xaml.vb">
+      <DependentUpon>Window_CalculatePay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_EmpMgmt.xaml.vb">
+      <DependentUpon>Window_EmpMgmt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Pages\Page_Home.xaml.vb">
+      <DependentUpon>Page_Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Printing Modules\BillPrinterModule.vb" />
+    <Compile Include="Printing Modules\BillPrinterSetting2.vb" />
+    <Compile Include="Printing Modules\ErrLogger.vb" />
+    <Compile Include="Printing Modules\ReportPrinterModule.vb" />
+    <Compile Include="Printing Modules\ReportPrinterModule2.vb" />
+    <Compile Include="Printing Modules\RupeeConverter.vb" />
+    <Compile Include="XAML Windows\Window_CustChoice.xaml.vb">
+      <DependentUpon>Window_CustChoice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_CustHistory.xaml.vb">
+      <DependentUpon>Window_CustHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_CustMgmt.xaml.vb">
+      <DependentUpon>Window_CustMgmt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_FrequentAbs.xaml.vb">
+      <DependentUpon>Window_FrequentAbs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_PayReport.xaml.vb">
+      <DependentUpon>Window_PayReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_PendingSuppliers.xaml.vb">
+      <DependentUpon>Window_PendingSuppliers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_ProductGroup.xaml.vb">
+      <DependentUpon>Window_ProductGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_PSAnalysis.xaml.vb">
+      <DependentUpon>Window_PSAnalysis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\BillWindow.xaml.vb">
+      <DependentUpon>BillWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\RawProductAddition.xaml.vb">
+      <DependentUpon>RawProductAddition.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\start_window.xaml.vb">
+      <DependentUpon>start_window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_ChangePass.xaml.vb">
+      <DependentUpon>Window_ChangePass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_Login.xaml.vb">
+      <DependentUpon>Window_Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_MonthlyReport.xaml.vb">
+      <DependentUpon>Window_MonthlyReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_NewUser.xaml.vb">
+      <DependentUpon>Window_NewUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_PendingCredits.xaml.vb">
+      <DependentUpon>Window_PendingCredits.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_ReportsByDate.xaml.vb">
+      <DependentUpon>Window_ReportsByDate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_Restock.xaml.vb">
+      <DependentUpon>Window_Restock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_StockAnalysis.xaml.vb">
+      <DependentUpon>Window_StockAnalysis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_StockMgmt.xaml.vb">
+      <DependentUpon>Window_StockMgmt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_StockOrder.xaml.vb">
+      <DependentUpon>Window_StockOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_SupplierMgm.xaml.vb">
+      <DependentUpon>Window_SupplierMgm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_SuppValue.xaml.vb">
+      <DependentUpon>Window_SuppValue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_TodayReport.xaml.vb">
+      <DependentUpon>Window_TodayReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML Windows\Window_TSAnalysis.xaml.vb">
+      <DependentUpon>Window_TSAnalysis.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <AppDesigner Include="My Project\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="XAML Windows\Window_Attendance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XAML Windows\Window_CalculatePay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XAML Windows\Window_EmpMgmt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XAML Windows\Pages\Page_Home.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="XAML Windows\Window_CustChoice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XAML Windows\Window_CustHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XAML Windows\Window_CustMgmt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XAML Windows\Window_FrequentAbs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XAML Windows\Window_PayReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XAML Windows\Window_PendingSuppliers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XAML Windows\Window_ProductGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XAML Windows\Window_PSAnalysis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XAML Windows\BillWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="XAML Windows\RawProductAddition.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="XAML Windows\start_window.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="XAML Windows\Window_ChangePass.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="XAML Windows\Window_Login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="XAML Windows\Window_MonthlyReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="XAML Windows\Window_NewUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="XAML Windows\Window_PendingCredits.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="XAML Windows\Window_ReportsByDate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="XAML Windows\Window_Restock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XAML Windows\Window_StockAnalysis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XAML Windows\Window_StockMgmt.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="XAML Windows\Window_StockOrder.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="XAML Windows\Window_SupplierMgm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XAML Windows\Window_SuppValue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XAML Windows\Window_TodayReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="XAML Windows\Window_TSAnalysis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="mainico.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

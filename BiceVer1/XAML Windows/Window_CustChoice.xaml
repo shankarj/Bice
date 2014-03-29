@@ -1,0 +1,39 @@
+﻿<Window x:Class="Window_CustChoice"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dg="clr-namespace:Microsoft.Windows.Controls;assembly=WpfToolkit"
+    xmlns:am="http://schemas.amcharts.com/charts/wpf/2009/xaml"
+    Title="Customers' Choice" Height="666" Width="919"  WindowState="Normal" WindowStartupLocation="CenterScreen" ShowInTaskbar="False" ResizeMode="NoResize" Topmost="True" Name="Window1" SizeToContent="Manual">
+    <Grid>
+
+
+        <Grid Name="grid_main" IsEnabled="True">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="45" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Button Focusable="False" IsHitTestVisible="False" ></Button>
+
+                <Label FontSize="40" FontStyle="Italic" FontWeight="Black" Foreground="PaleGoldenrod" Margin="16,17,318,25" Name="Label1">
+                    <Label.BitmapEffect>
+                        <OuterGlowBitmapEffect GlowColor="DarkBlue" />
+                    </Label.BitmapEffect> What your Customers buy ?
+                </Label>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <am:PieChart Name="pieChart1"           
+             LegendEnabled="False"
+             InnerRadius="40" PieHeight="50" PieAngle="30"
+             SelectionMode="Single"
+             BrightnessStep="-10"
+             HorizontalContentAlignment="Center">
+                </am:PieChart>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

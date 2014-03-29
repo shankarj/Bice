@@ -1,0 +1,52 @@
+﻿<Window x:Class="Window_CustHistory"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dg="clr-namespace:Microsoft.Windows.Controls;assembly=WpfToolkit"
+    xmlns:am="http://schemas.amcharts.com/charts/wpf/2009/xaml"
+    Title="Customer History" Height="666" Width="919"  WindowState="Normal" WindowStartupLocation="CenterScreen" ShowInTaskbar="False" ResizeMode="NoResize" Topmost="True" Name="Window1" SizeToContent="Manual">
+    <Grid>
+
+
+        <Grid Name="grid_main" IsEnabled="True">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="45" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Button Focusable="False" IsHitTestVisible="False" ></Button>
+
+                <Label FontSize="40" FontStyle="Italic" FontWeight="Black" Foreground="PaleGoldenrod" Margin="16,17,318,25" Name="Label1">
+                    <Label.BitmapEffect>
+                        <OuterGlowBitmapEffect GlowColor="DarkBlue" />
+                    </Label.BitmapEffect> Customer Buying History
+                </Label>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Border BorderBrush="CadetBlue" BorderThickness="3" CornerRadius="5,5,5,5" HorizontalAlignment="Left" Margin="26,40,0,27" Width="294">
+                    <Grid>
+                        <ComboBox Height="23" Margin="23,46,31,0" Name="ComboBox1" VerticalAlignment="Top" />
+                        <Button Height="39" Margin="23,0,31,73" Name="Button2" VerticalAlignment="Bottom">SHOW</Button>
+                        <Label FontWeight="Black" Foreground="MidnightBlue" Height="28" Margin="112,91,3,0" Name="Label8" VerticalAlignment="Top" FontSize="14">OPTION : 1</Label>
+                        <CheckBox Margin="23,0,31,153" Name="CheckBox2" Height="16" VerticalAlignment="Bottom">SHOW FOR ALL PRODUCTS</CheckBox>
+                        <Button Height="23" HorizontalAlignment="Right" Margin="0,0,31,24" Name="Button1" VerticalAlignment="Bottom" Width="87" IsCancel="True">CLOSE</Button>
+                        <Label FontWeight="Black" Foreground="MidnightBlue" Height="28" Margin="23,136,75,0" Name="Label11" VerticalAlignment="Top">PRODUCT :</Label>
+                        <ComboBox Height="23" Margin="121,131,31,0" Name="ComboBox2" VerticalAlignment="Top" />
+                        <Label FontSize="14" FontWeight="Black" Foreground="MidnightBlue" Margin="112,194,3,188" Name="Label3">OPTION : 2</Label>
+                        <Label FontWeight="Black" Foreground="MidnightBlue" Height="28" Margin="23,23,75,0" Name="Label6" VerticalAlignment="Top">CHOOSE CUSTOMER :</Label>
+                    </Grid>
+                </Border>
+                <Label FontWeight="Black" Foreground="MidnightBlue" Height="28" HorizontalAlignment="Left" Margin="26,10,0,0" Name="Label5" VerticalAlignment="Top" Width="173">CHOOSE YOUR OPTION</Label>
+                <am:LineChart Margin="339,25,24,17" Name="Mychart">
+                    <am:LineChart.CategoryAxis>
+                        <am:CategoryAxis Stroke="White" StrokeThickness="1" ValuesFontSize="10" ValuesRotationAngle="-90" />
+                    </am:LineChart.CategoryAxis>
+                    <am:LineChartGraph BalloonBackground="Goldenrod" BalloonForeground="Black" Brush="Violet" BulletType="RoundOutlined" IsSelected="True" LineThickness="2" Name="a1" />
+                </am:LineChart>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

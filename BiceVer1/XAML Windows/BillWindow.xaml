@@ -1,0 +1,174 @@
+﻿<Window x:Class="BillWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dg="clr-namespace:Microsoft.Windows.Controls;assembly=WpfToolkit"
+    
+    Title="New Bill" Height="513" Width="1075" WindowStartupLocation="CenterScreen" ShowInTaskbar="False" WindowStyle="ToolWindow" Topmost="False" Name="Window1" Icon="/BiceVer1;component/mainico.ico">
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+
+
+        <ListBox Grid.RowSpan="3" IsHitTestVisible="False">
+
+        </ListBox>
+
+        <Grid Grid.Row="0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="200"/>
+
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="200" />
+            </Grid.ColumnDefinitions>
+
+            <Label FontWeight="Medium" Margin="5,4,0,0" HorizontalAlignment="Left" Width="59" Grid.Column="1" FontSize="13" Height="18" VerticalAlignment="Top">BILL TYPE</Label>
+            <ComboBox Name="Combo_BillType" Grid.Column="1" Margin="5,30,31,26">
+                <ComboBoxItem>
+                    CASH BILL
+                </ComboBoxItem>
+
+                <ComboBoxItem>
+                    CREDIT BILL
+                </ComboBoxItem>
+            </ComboBox>
+
+
+            <Label FontWeight="Medium" Height="18" VerticalAlignment="Top" Grid.Column="3" FontSize="13" HorizontalAlignment="Left" Width="59" Margin="0,6,0,0">BILL NO</Label>
+            <Label FontWeight="Medium" Margin="0,38,0,24" HorizontalAlignment="Left" Width="59" Grid.Column="3" FontSize="13">KOT NO</Label>
+            <TextBox Name="Text_BillNumber" Margin="65,6,57,0" Height="22" VerticalAlignment="Top" Grid.Column="3"></TextBox>
+            <TextBox Name="Text_KOTNumber" Margin="65,38,12,20" Grid.Column="3"></TextBox>
+            <Label FontSize="18" FontWeight="Black" Foreground="Red" Margin="33,23,39,31" Name="label_stocknotif" Grid.Column="2" Cursor="Hand" Visibility="Hidden" Content="STOCKS BELOW THRESHOLD. CLICK HERE TO VIEW AVAILABILITY.">
+                
+            </Label>
+            <!--<TextBlock FontStyle="Italic" Foreground="DarkBlue" Height="19" Name="TextBlock3" Text="Some Quick Tips :" VerticalAlignment="Top" Grid.Column="2" HorizontalAlignment="Left" Width="143" Margin="15.708,2.142,0,0" />-->
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label FontWeight="Medium" Margin="5,3,0,8" FontSize="13" HorizontalAlignment="Left" Width="195">CUSTOMER NAME / PHONE NO</Label>
+                <TextBox Name="Text_CustomerDetail" Margin="212,3,0,5" HorizontalAlignment="Left" Width="276" IsEnabled="False"></TextBox>
+                <TextBlock  TextDecorations="Underline" HorizontalAlignment="Right" Margin="0,3,258,5" Width="237" FontStyle="Italic" Foreground="Blue" Name="ALabel" IsEnabled="False" Cursor="Hand" Visibility="Visible">
+                    <Run MouseEnter="Run_MouseEnter"> Move Mouse here to See Customer Details</Run>
+                </TextBlock>
+                <Popup Name="popLink" StaysOpen="False" Placement="Mouse" Width="200"
+                PopupAnimation="Slide" AllowsTransparency="True">
+
+                    <Border BorderBrush="DarkBlue" BorderThickness="2" Background="White" CornerRadius="5,5,5,5">
+                        <Grid Background="Transparent">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Name="label_id" Grid.Column ="0" Margin="10,10,0,0">ID</Label>
+                            <Label Name="label_name" Grid.Column="0" Margin="10,30,0,0">NAME</Label>
+                            <Label Name="label_phone" Grid.Column="0" Margin="10,50,0,0">PHONE NUM</Label>
+                            <Label Name="label_dob" Grid.Column="0" Margin="10,70,0,0">DOB</Label>
+                            <Label Name="label_email" Grid.Column="0" Margin="10,90,0,0">EMAIL</Label>
+                            <Label Name="label_address" Grid.Column="0" Margin="10,110,0,50">ADDRESS</Label>
+                        </Grid>
+                    </Border>
+
+                </Popup>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="500" />
+                        <ColumnDefinition Width="*" />
+
+                    </Grid.ColumnDefinitions>
+                    <Border BorderBrush="DarkBlue" BorderThickness="2" CornerRadius="5,5,5,5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+
+                                <ColumnDefinition Width="*"/>
+
+
+                            </Grid.ColumnDefinitions>
+                            <Label FontSize="13" FontWeight="Medium" Height="19" HorizontalAlignment="Left" Margin="5,18,0,0" VerticalAlignment="Top" Width="84.252">CODE / NAME</Label>
+                            <Label FontSize="13" FontWeight="Medium" Height="19" HorizontalAlignment="Left" Margin="5,51,0,0" VerticalAlignment="Top" Width="93">QUANTITY</Label>
+                            <Label FontSize="13" FontWeight="Medium" Height="19" Margin="5,82.11,94,0" VerticalAlignment="Top">PRODUCT COST</Label>
+                            <Label FontSize="13" FontWeight="Medium" Height="19" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="6,0,0,96" Width="93">TOTAL</Label>
+                            <TextBox Name="Text_ProductCode" Height="27.846" Margin="0,14,2,0"  VerticalAlignment="Top" HorizontalAlignment="Right" Width="76" FontWeight="Black" />
+                            <TextBox Name="Text_Quantity" Height="22" Margin="0,50,2,0"  VerticalAlignment="Top" HorizontalAlignment="Right" Width="76" FontWeight="Black" />
+                            <TextBox Name="Text_ProductCost" Height="22" Margin="0,82.11,2,0"  VerticalAlignment="Top" HorizontalAlignment="Right" Width="76" FontWeight="Black" />
+                            <TextBox Name="Text_Total" Margin="0,0,2,96"  HorizontalAlignment="Right" Width="76" Height="22" VerticalAlignment="Bottom" FontWeight="Black" />
+                            <Button Height="23" Margin="6,0,0,47" Name="Button1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="84.252">ADD ITEM</Button>
+                            <dg:DataGrid Name="grid_list"  Grid.Column="1" Margin="10" AlternatingRowBackground="CadetBlue" FontWeight="Medium">
+                            </dg:DataGrid>
+                            <Button Height="23" Margin="5,0,7.314,18" Name="Button3" VerticalAlignment="Bottom">FINISH ADDING (F2)</Button>
+                            <Button Height="23" HorizontalAlignment="Right" Margin="0,0,7.314,47" Name="Button4" VerticalAlignment="Bottom" Width="84.252">CLEAR ALL</Button>
+                            <Label FontSize="13" FontWeight="Medium" Margin="5,113.526,62.832,130.662">DISCOUNT</Label>
+                            <TextBox HorizontalAlignment="Right" Margin="0,113.526,2,0" Name="Text_Discount" Width="76" FontWeight="Black" Height="21.668" VerticalAlignment="Top" />
+                            <Label FontSize="10" FontWeight="Medium" Margin="5,129,63,115" FontStyle="Italic">(Total Value of product)</Label>
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Column="1" BorderBrush="DarkBlue" BorderThickness="2" CornerRadius="5,5,5,5" Margin="10,0,0,0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0" FontSize="13" FontWeight="Medium" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="195" FontStyle="Italic" Margin="8,5,0,0">Total Items Currently in the Bill :</Label>
+
+                            <dg:DataGrid Grid.Row="1" Margin="10,10,10,10" Name="grid_bill" FontWeight="Medium" AlternatingRowBackground="CadetBlue" >
+
+                            </dg:DataGrid>
+                            <TextBox FontWeight="Black" Margin="198,3.57,0,4.284" Name="Text_ItemCount" HorizontalAlignment="Left" Width="47" />
+                            <Label FontSize="10" FontStyle="Italic" FontWeight="Medium" Margin="248,5,110,8" Foreground="Red">(Double Click to DELETE an item.)</Label>
+                        </Grid>
+                    </Border>
+
+                </Grid>
+
+            </Grid>
+
+
+        </Grid>
+
+        <Grid Grid.Row="2">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="500"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="3" Name="label_total" Margin="17,28,30,28" FontSize="30" FontWeight="Black" Foreground="Red">Rs.</Label>
+            <TextBlock  Name="text_bottom" TextDecorations="Underline" FontStyle="Italic" Foreground="DarkBlue" Margin="110,0,-6,8.568" Grid.Column="3" Text="Thank you come again." Height="19" VerticalAlignment="Bottom" Cursor="Hand"></TextBlock>
+            <Label FontSize="13" FontWeight="Medium" Margin="17,11,12,0" Grid.Column="3" Height="22" VerticalAlignment="Top">TOTAL (Including Discounts and Taxes)</Label>
+            <Label FontSize="13" FontWeight="Medium" Height="19" HorizontalAlignment="Left" Margin="16,10.71,0,0" VerticalAlignment="Top" Width="144.942" Grid.Column="2">BILL DISCOUNT RATE</Label>
+            <TextBox Grid.Column="2" Height="22" Margin="189,7.854,235,0" Name="Text_billdiscount" VerticalAlignment="Top" />
+            <Label FontSize="13" FontWeight="Medium" Margin="16,39.984,0,41.412" Grid.Column="2" HorizontalAlignment="Left" Width="134">AMOUNT GIVEN</Label>
+            <TextBox Grid.Column="2" Margin="189,37.128,235,41.412" Name="Text_amountgiven" />
+            <CheckBox Grid.Column="1" Margin="7,0,13.566,15.282" Name="CheckBox1" Height="16" VerticalAlignment="Bottom" IsEnabled="False">MARK THIS BILL AS INVISIBLE</CheckBox>
+            <Label FontSize="13" FontWeight="Medium" Height="19" Margin="16,0,0,12.138" VerticalAlignment="Bottom" Grid.Column="2" HorizontalAlignment="Left" Width="179">AMOUNT TO BE RETURNED</Label>
+            <TextBox Grid.Column="2" Height="22" Margin="189,0,235,9.282" Name="Text_amountreturned" VerticalAlignment="Bottom" />
+            <Label FontSize="13" FontWeight="Medium" Height="19" Margin="7,15,87,0" VerticalAlignment="Top" Grid.Column="1">VAT RATE</Label>
+            <TextBox Height="22" HorizontalAlignment="Right" Margin="0,15,13.566,0" Name="text_vat" VerticalAlignment="Top" Width="76" Grid.Column="1" />
+            <Button Margin="0,11,18.502,0" Name="Button2" HorizontalAlignment="Right" Width="183.498" Grid.Column="2" Height="34.847" VerticalAlignment="Top">FINALIZE AND PRINT BILL</Button>
+            <Label FontSize="13" FontWeight="Medium" Height="22" VerticalAlignment="Bottom" Grid.Column="3" HorizontalAlignment="Left" Width="73" Margin="36,0,0,5.712">Bill Footer :</Label>
+            <Button Margin="0,0,18.502,12.138" Name="Button5" Grid.Column="2" HorizontalAlignment="Right" Width="183.498" Height="34.847" VerticalAlignment="Bottom">MARK BILL AS PENDING</Button>
+            <Button Height="31.703" Margin="0,0,5,4" Name="Button6" VerticalAlignment="Bottom" Grid.Column="3" HorizontalAlignment="Right" Width="64" IsCancel="True">CANCEL</Button>
+            <Button HorizontalAlignment="Left" IsCancel="True" Margin="18,0,0,11" Name="Button7" Width="15" Grid.Column="3" Height="15.816" VerticalAlignment="Bottom"></Button>
+        </Grid>
+    </Grid>
+</Window>

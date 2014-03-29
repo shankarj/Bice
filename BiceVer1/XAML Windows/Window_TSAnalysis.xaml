@@ -1,0 +1,71 @@
+﻿<Window x:Class="Window_TSAnalysis"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dg="clr-namespace:Microsoft.Windows.Controls;assembly=WpfToolkit"
+    xmlns:am="http://schemas.amcharts.com/charts/wpf/2009/xaml"
+    Title="Product Sales Analysis" Height="666" Width="919"  WindowState="Normal" WindowStartupLocation="CenterScreen" ShowInTaskbar="False" ResizeMode="NoResize" Topmost="True" Name="Window1" SizeToContent="Manual">
+    <Grid>
+
+
+        <Grid Name="grid_main" IsEnabled="True">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="45" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Button Focusable="False" IsHitTestVisible="False" ></Button>
+
+                <Label FontSize="40" FontStyle="Italic" FontWeight="Black" Foreground="PaleGoldenrod" Margin="16,17,318,25" Name="Label1">
+                    <Label.BitmapEffect>
+                        <OuterGlowBitmapEffect GlowColor="DarkBlue" />
+                    </Label.BitmapEffect> Sales Analysis
+                </Label>
+            </Grid>
+
+            <Grid Grid.Row="1">
+
+                <am:LineChart Margin="349,35,14,7" Name="Mychart">
+                    <am:LineChart.CategoryAxis>
+                        <am:CategoryAxis ValuesFontSize="10" ValuesRotationAngle="-90" 
+                                         Stroke="White" StrokeThickness="1" />
+                    </am:LineChart.CategoryAxis>
+
+                    
+                    <am:LineChart.Graphs>
+                        <am:LineChartGraph Name="a1" LineThickness="2" Title="CASH"
+                                           Brush="Violet" BulletType="RoundOutlined"
+                                           BalloonForeground="Black" IsSelected="True">
+                           
+                        </am:LineChartGraph>
+
+                        <am:LineChartGraph Name="a2" LineThickness="2" Title="CREDIT"
+                                           Brush="Green" BulletType="RoundOutlined"
+                                           BalloonForeground="Black" IsSelected="True">
+                            
+                        </am:LineChartGraph>
+
+
+                    </am:LineChart.Graphs>
+                </am:LineChart>
+                        <Border BorderBrush="CadetBlue" BorderThickness="3" CornerRadius="5,5,5,5" HorizontalAlignment="Left" Margin="26,62,0,55" Width="294">
+                    <Grid>
+                        <Label FontWeight="Black" Foreground="MidnightBlue" Margin="29,171,86,0" Name="Label3" Height="28" VerticalAlignment="Top">BETWEEN DATES</Label>
+                        <dg:DatePicker Height="29" Margin="102,0,24,117" Name="dtp_from" VerticalAlignment="Bottom" />
+                        <dg:DatePicker Margin="101,0,25,79" Name="dtp_to" Height="29" VerticalAlignment="Bottom" />
+                        <Label FontWeight="Black" Foreground="MidnightBlue" Height="28" Margin="29,0,0,114" Name="Label6" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="53">FROM</Label>
+                        <Label FontWeight="Black" Foreground="MidnightBlue" Height="28" HorizontalAlignment="Left" Margin="29,0,0,76" Name="Label7" VerticalAlignment="Bottom" Width="53">TO</Label>
+                        <Button Height="23" Margin="82,0,86,25" Name="Button2" VerticalAlignment="Bottom">SHOW</Button>
+                        <Label FontWeight="Black" Foreground="MidnightBlue" Height="28" Margin="102,14.843,13,0" Name="Label8" VerticalAlignment="Top" FontSize="14">STEP : 1</Label>
+                        <CheckBox Margin="59,71,20,0" Name="CheckBox1" Height="16" VerticalAlignment="Top">SHOW FOR TODAY</CheckBox>
+                        <Label FontWeight="Black" Foreground="MidnightBlue" HorizontalAlignment="Left" Margin="112,120,0,0" Name="Label10" Width="22" Height="28" VerticalAlignment="Top">OR</Label>
+                    </Grid>
+                </Border>
+                <Label FontWeight="Black" Foreground="MidnightBlue" Height="28" HorizontalAlignment="Left" Margin="26,22,0,0" Name="Label5" VerticalAlignment="Top" Width="173">CHOOSE YOUR OPTION</Label>
+            </Grid>
+            <Button HorizontalAlignment="Right" Margin="0,8,14,14" Name="Button1" Width="120" Grid.Row="2" IsCancel="True">CLOSE</Button>
+        </Grid>
+    </Grid>
+</Window>
